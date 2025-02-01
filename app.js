@@ -36,6 +36,29 @@ slackApp.message('test1234', async ({ message, say }) => {
     text: `Hey there <@${message.user}>!`
   });
 
+  await say({
+    blocks: [
+      {
+        "type": "section",
+        fields: [
+            {
+                type: 'mrkdwn',
+                text: 'Many lines'
+            },
+            {
+                type: 'mrkdwn',
+                text: 'Sent in a single say() request'
+            },
+            {
+                type: 'mrkdwn',
+                text: '_Pretty neat_'
+            }
+        ]
+      },
+    ],
+    text: `Many lines. Sent in a single say() request. Pretty neat`
+  });
+
   await say('> Payload')
   await say('_italic_')
   await say('*bold*')
