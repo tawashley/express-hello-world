@@ -82,7 +82,7 @@ app.get("/", (req, res) => res.send('OK'));
 app.get("/api/fire-test-message", async (req, res) => {
     const chatResponse = await slackApp.client.chat.postMessage({
         channel: TESTING_CHANNEL_ID,
-        text: 'Beep boop, posted a message'
+        text: 'Beep boop, posted a message - test1234'
     });
 
     if(chatResponse.ok) {
