@@ -21,7 +21,7 @@ const slackApp = new App({
 });
 
 // Listens to incoming messages that contain "hello"
-slackApp.message('hello', async ({ message, say }) => {
+slackApp.message('test1234', async ({ message, say }) => {
   // say() sends a message to the channel where the event was triggered
   await say({
     blocks: [
