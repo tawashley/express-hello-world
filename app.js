@@ -20,6 +20,8 @@ const slackApp = new App({
   receiver
 });
 
+const TESTING_CHANNEL_ID = "C08B82QRN4D"
+
 // Listens to incoming messages that contain "hello"
 slackApp.message('test1234', async ({ message, say }) => {
   // say() sends a message to the channel where the event was triggered
@@ -77,13 +79,15 @@ slackApp.message('test1234', async ({ message, say }) => {
 // });
 
 app.get("/", (req, res) => res.send('OK'));
-app.get("/api/fire-message", async (req, res) => {
-    const channels = await slackApp.client.conversations.list({ types: 'public_channel' })
+app.get("/api/fire-test-message", async (req, res) => {
+    const chatResponse = await slackApp.client.chat.postMessage({
+        channel: TESTING_CHANNEL_ID,
+        text: 'Beep boop, posted a message'
+    });
 
-    slackApp.logger.info('Channels')
-    slackApp.logger.info(channels)
-
-    res.send('A OK!')
+    if(chatResponse.ok) {
+        res.send(chatResponse.ok ? 'Message sent successfully' : 'Failed to send message');
+    }
 })
 app.use(receiver.router)
 
