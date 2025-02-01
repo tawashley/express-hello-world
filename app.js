@@ -44,13 +44,7 @@ slackApp.message('test1234', async ({ message, say }) => {
   await say('Smile emoji: :smile:')
   await say('[Duck Duck Go](https://duckduckgo.com)')
   await say('https://media.tenor.com/ijTmLickqicAAAAM/captain-holt-brooklyn-nine-nine.gif')
-  await say(`line
-
-    with
-
-    a
-
-    break`)
+  await say(`line\nwith\na\nbreak`)
 });
 
 // slackApp.action('button_click', async ({ body, ack, say }) => {
