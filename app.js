@@ -31,21 +31,33 @@ slackApp.message('hello', async ({ message, say }) => {
           "type": "mrkdwn",
           "text": `Hey there <@${message.user}>!`
         },
-        // "accessory": {
-        //   "type": "button",
-        //   "text": {
-        //     "type": "plain_text",
-        //     "text": "Click Me"
-        //   },
-        //   "action_id": "button_click"
-        // }
       }
     ],
     text: `Hey there <@${message.user}>!`
   });
 
-  await say('Here is a follow up message')
-  await say('Here is a follow follow up message')
+  await say({
+    blocks: [
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": `Hey there 2 <@${message.user}>!`
+        },
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": `Hey there 3 <@${message.user}>!`
+        },
+      }
+    ],
+  });
+
+  await say('> Payload')
+  await say(JSON.stringify(message))
+
 });
 
 // slackApp.action('button_click', async ({ body, ack, say }) => {
