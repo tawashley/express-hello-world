@@ -11,6 +11,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "@slack/bolt": "^4.2.0",
     "express": "^5.0.0"
   }
 }
