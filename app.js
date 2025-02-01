@@ -31,8 +31,9 @@ slackApp.message('test1234', async ({ message, say }) => {
           "type": "mrkdwn",
           "text": `Hey there <@${message.user}>!`,
         },
-      }
-    ]
+      },
+    ],
+    text: `Hey there <@${message.user}>!`
   });
 
   await say('> Payload')
