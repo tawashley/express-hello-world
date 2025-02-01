@@ -77,6 +77,12 @@ slackApp.message('test1234', async ({ message, say }) => {
 // });
 
 app.get("/", (req, res) => res.send('OK'));
+app.get("/api/fire-message", async (req, res) => {
+    const channels = slackApp.client.conversations.list({ types: 'public_channel' })
+
+    slackApp.logger.info('Channels')
+    slackApp.logger.info(channels)
+})
 app.use(receiver.router)
 
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
