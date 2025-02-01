@@ -31,25 +31,28 @@ slackApp.message('hello', async ({ message, say }) => {
           "type": "mrkdwn",
           "text": `Hey there <@${message.user}>!`
         },
-        "accessory": {
-          "type": "button",
-          "text": {
-            "type": "plain_text",
-            "text": "Click Me"
-          },
-          "action_id": "button_click"
-        }
+        // "accessory": {
+        //   "type": "button",
+        //   "text": {
+        //     "type": "plain_text",
+        //     "text": "Click Me"
+        //   },
+        //   "action_id": "button_click"
+        // }
       }
     ],
     text: `Hey there <@${message.user}>!`
   });
+
+  await say('Here is a follow up message')
+  await say('Here is a follow follow up message')
 });
 
-slackApp.action('button_click', async ({ body, ack, say }) => {
-  // Acknowledge the action
-  await ack();
-  await say(`<@${body.user.id}> clicked the button`);
-});
+// slackApp.action('button_click', async ({ body, ack, say }) => {
+//   // Acknowledge the action
+//   await ack();
+//   await say(`<@${body.user.id}> clicked the button`);
+// });
 
 app.get("/", (req, res) => res.send('OK'));
 app.use(receiver.router)
