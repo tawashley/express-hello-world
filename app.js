@@ -32,32 +32,17 @@ slackApp.message('hello', async ({ message, say }) => {
           "text": `Hey there <@${message.user}>!`
         },
       }
-    ],
-    text: `Hey there <@${message.user}>!`
-  });
-
-  await say({
-    blocks: [
-      {
-        "type": "section",
-        "text": {
-          "type": "mrkdwn",
-          "text": `Hey there 2 <@${message.user}>!`
-        },
-      },
-      {
-        "type": "section",
-        "text": {
-          "type": "mrkdwn",
-          "text": `Hey there 3 <@${message.user}>!`
-        },
-      }
-    ],
+    ]
   });
 
   await say('> Payload')
-  await say(JSON.stringify(message))
-
+  await say('_italic_')
+  await say('*bold*')
+  await say('~strike~')
+  await say('https://www.google.com')
+  await say('Smile emoji: :smile:')
+  await say('[Duck Duck Go](https://duckduckgo.com)')
+  await say('https://media.tenor.com/ijTmLickqicAAAAM/captain-holt-brooklyn-nine-nine.gif')
 });
 
 // slackApp.action('button_click', async ({ body, ack, say }) => {
